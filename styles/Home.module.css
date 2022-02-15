@@ -1,0 +1,26 @@
+.main {
+	flex-grow: 1;
+
+	display: flex;
+	position: relative;
+	margin: var(--content-margin-vertical) var(--content-margin-horizontal);
+}
+
+.description {
+	width: 571px;
+}
+
+.description > h2 {
+	font-family: "Playfair Display", serif;
+	font-size: 100px;
+	font-weight: normal;
+	color: var(--text-color);
+	margin-bottom: 25px;
+}
+
+.description > p {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 30px;
+	color: var(--secondary-text-color);
+}

@@ -1,9 +1,12 @@
 import "../styles/globals.css";
 import Layout from "components/Layout";
-import Header from "components/Header";
 import Head from "next/head";
+import { AnimatePresence } from "framer-motion";
+import ArtList from "components/ArtList";
+import ModeSwitch from "components/ModeSwitch";
+import PageWrapper from "components/PageWrapper";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
 	return (
 		<>
 			<Head>
@@ -13,10 +16,20 @@ function MyApp({ Component, pageProps }) {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Layout>
-				<Header />
-				<Component {...pageProps} />
+			<Layout route={router.route}>
+				<PageWrapper>
+					<AnimatePresence initial={false} exitBeforeEnter>
+						<Component key={router.route} route={router.route} {...pageProps} />
+					</AnimatePresence>
+				</PageWrapper>
+
+				<ArtList route={router.route} router={router} />
 			</Layout>
+			<AnimatePresence initial={false}>
+				{(router.route === "/" || router.route === "/slider") && (
+					<ModeSwitch key="modeSwitch" route={router.route} router={router} />
+				)}
+			</AnimatePresence>
 		</>
 	);
 }

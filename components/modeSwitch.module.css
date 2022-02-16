@@ -1,19 +1,30 @@
 .modeSwitchContainer {
 	position: absolute;
-	bottom: 0px;
-	right: 0px;
+	bottom: 50px;
+	right: var(--content-margin-horizontal);
 }
 
 .button {
 	background-color: #4b4b4b;
+	box-shadow: 0px 0px 1px #000000;
 	border: none;
 	border-radius: 20px;
 	padding: 5px;
 
 	display: flex;
+	align-items: center;
+	justify-content: middle;
 	cursor: pointer;
 }
-
-.button > svg:first-of-type {
-	border-right: 1px solid white;
+.button > div {
+	padding: 5px 7px;
+	flex: 1;
+}
+.button > div:first-child {
+	border-right: 1px solid var(--secondary-text-color);
+	padding-right: 10px;
+}
+.button > div:last-child {
+	border-left: 1px solid var(--secondary-text-color);
+	padding-left: 10px;
 }

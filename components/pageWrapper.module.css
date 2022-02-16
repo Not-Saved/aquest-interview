@@ -1,0 +1,6 @@
+.wrapper {
+	position: relative;
+	flex-basis: 570px;
+	flex-shrink: 0;
+	margin-left: var(--content-margin-horizontal);
+}

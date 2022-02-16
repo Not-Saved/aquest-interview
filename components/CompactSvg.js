@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
 const variants = {
-	visible: { opacity: 1 },
-	hidden: { opacity: 0.187 },
+	visible: { opacity: 1, transition: { duration: 0.7 } },
+	hidden: { opacity: 0.397, transition: { duration: 0.7 } },
 };
 
 export default function CompactSvg({ checked, ...props }) {
@@ -10,11 +10,10 @@ export default function CompactSvg({ checked, ...props }) {
 		<motion.svg
 			xmlns="http://www.w3.org/2000/svg"
 			xmlnsXlink="http://www.w3.org/1999/xlink"
-			width="64"
-			height="52"
-			viewBox="0 0 64 52"
+			width="46"
+			height="42"
+			viewBox="0 0 54 42"
 			animate={checked ? "visible" : "hidden"}
-			transition={{ duration: 0.8 }}
 			variants={variants}
 			{...props}
 		>
@@ -41,41 +40,41 @@ export default function CompactSvg({ checked, ...props }) {
 					<feComposite in="SourceGraphic" />
 				</filter>
 			</defs>
-			<g id="Component_20_1" data-name="Component 20 – 1" transform="translate(9 6)">
-				<g transform="matrix(1, 0, 0, 1, -9, -6)" filter="url(#Rectangle_13)">
-					<motion.rect
+			<motion.g id="Component_20_1" data-name="Component 20 – 1" variants={variants}>
+				<g filter="url(#Rectangle_13)">
+					<rect
 						id="Rectangle_13-2"
 						data-name="Rectangle 13"
 						width="26"
 						height="34"
 						rx="13"
-						transform="translate(29 6)"
+						transform="translate(24 3)"
 						fill="#fff2d9"
 					/>
 				</g>
-				<g transform="matrix(1, 0, 0, 1, -9, -6)" filter="url(#Rectangle_14)">
-					<motion.rect
+				<g filter="url(#Rectangle_14)">
+					<rect
 						id="Rectangle_14-2"
 						data-name="Rectangle 14"
 						width="26"
 						height="34"
 						rx="13"
-						transform="translate(19 6)"
+						transform="translate(14 3)"
 						fill="#fff2d9"
 					/>
 				</g>
-				<g transform="matrix(1, 0, 0, 1, -9, -6)" filter="url(#Rectangle_15)">
-					<motion.rect
+				<g filter="url(#Rectangle_15)">
+					<rect
 						id="Rectangle_15-2"
 						data-name="Rectangle 15"
 						width="26"
 						height="34"
 						rx="13"
-						transform="translate(9 6)"
+						transform="translate(4 3)"
 						fill="#fff2d9"
 					/>
 				</g>
-			</g>
+			</motion.g>
 		</motion.svg>
 	);
 }

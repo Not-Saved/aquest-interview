@@ -1,0 +1,23 @@
+.list {
+	display: flex;
+	height: 100%;
+	padding: var(--content-margin-vertical) var(--content-margin-horizontal);
+}
+
+.list > li {
+	padding: 0px 20px;
+}
+
+.list > li:first-child {
+	padding-left: 0px;
+}
+
+.list > li:last-child {
+	padding-right: 0px;
+}
+
+.listContainer {
+	overflow-y: hidden;
+	overflow-x: hidden;
+	min-width: 100vw;
+}

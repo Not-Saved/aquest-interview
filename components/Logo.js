@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Logo() {
 	return (
-		<Link href="/">
+		<Link href="/?view=compact">
 			<a>
 				<h1>
 					<span className="visuallyHidden">AQ</span>

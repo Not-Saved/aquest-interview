@@ -1,0 +1,28 @@
+.image {
+	position: relative;
+	height: 583px;
+	width: 459px;
+	margin-bottom: 20px;
+}
+
+.image img {
+	border-radius: 260px;
+	object-fit: cover;
+	-webkit-user-drag: none;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.image img:hover {
+	cursor: pointer;
+}
+
+.text > h3 {
+	text-align: center;
+}
+
+.text > p {
+	text-align: center;
+}

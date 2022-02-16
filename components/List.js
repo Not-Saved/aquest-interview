@@ -9,7 +9,7 @@ import data from "data.json";
 const listVariants = {
 	slider: {
 		width: "100vw",
-		x: -695,
+		x: -735,
 		transition: {
 			duration: 1,
 		},
@@ -42,7 +42,7 @@ export default function List({ route, router }) {
 				className={styles.list}
 				id="scrollingList"
 				drag={route === "/slider" ? "x" : false}
-				dragConstraints={{ left: route === "/" ? 0 : -762, right: 0 }}
+				dragConstraints={{ left: route === "/" ? 0 : -765, right: 0 }}
 				dragSnapToOrigin={route === "/"}
 				whileDrag={{ cursor: "grabbing" }}
 				animate={controls}

@@ -11,16 +11,16 @@ const imageVariants = {
 		transition: { duration: 1 },
 	},
 	compact: ({ index }) => ({
-		x: -370 * index,
-		scale: 0.9 ** index,
+		scale: 0.855 ** index + 0.1,
+		x: -290 * index - 14 * index * index,
 		y: 0,
 		transition: { duration: 1 },
 	}),
 	selected: ({ index }) => ({
 		transition: { duration: 1 },
-		x: (5 - index - 1) * 499 - 1500,
-		scale: 2,
-		y: 330,
+		x: (5 - index - 1) * 499 - 1630,
+		scale: 2.4,
+		y: 460,
 	}),
 	exit: ({ index, selected }) => ({
 		x: index >= selected.current ? 3000 : -3000,
@@ -47,7 +47,7 @@ const textVariants = {
 		opacity: 1,
 		transition: { duration: 1 },
 	},
-	detail: { opacity: 0, y: 0, x: -695, transition: { duration: 1 } },
+	detail: { opacity: 0, y: 0, x: -735, transition: { duration: 1 } },
 };
 
 export default function Item({ route, index, data, selected, setSelected }) {
@@ -67,6 +67,13 @@ export default function Item({ route, index, data, selected, setSelected }) {
 		else return "compact";
 	}
 
+	function handleClick() {
+		if (document.getElementById("scrollingList").style.cursor !== "grabbing" && route === "/slider") {
+			setSelected({ current: index + 1, removed: -1 });
+			router.push(`/detail/${index + 1}`, null);
+		}
+	}
+
 	return (
 		<motion.li className={styles.item}>
 			<motion.div
@@ -75,23 +82,12 @@ export default function Item({ route, index, data, selected, setSelected }) {
 				animate={getImageAnimate(selected)}
 				variants={imageVariants}
 				style={{ zIndex: 5 - index }}
-				onClick={(e) => {
-					if (document.getElementById("scrollingList").style.cursor !== "grabbing" && route === "/slider") {
-						setSelected({ current: index + 1, removed: -1 });
-						router.push(`/detail/${index + 1}`, null);
-					}
-				}}
+				onClick={handleClick}
 			>
-				<Image src={data.url} layout="fill" priority alt="" />
+				<Image src={data.url} layout="fill" priority alt="" quality={"100"} />
 			</motion.div>
-			<motion.div
-				className={styles.text}
-				custom={index}
-				initial={false}
-				animate={getTextAnimate(selected)}
-				variants={textVariants}
-			>
-				<h3>{data.name}</h3>
+			<motion.div className={styles.text} initial={false} animate={getTextAnimate(selected)} variants={textVariants}>
+				<h2>{data.name}</h2>
 				<p>{data.handle}</p>
 			</motion.div>
 		</motion.li>

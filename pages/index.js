@@ -3,7 +3,7 @@ import Head from "next/head";
 
 const descriptionVariants = {
 	exit: {
-		x: -695,
+		x: -735,
 		transition: { duration: 1 },
 	},
 	enter: {
@@ -18,13 +18,12 @@ export default function Home() {
 			<Head>
 				<title>The Abstract Design</title>
 				<meta name="description" content="An assignment for a job interview" />
-				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<motion.div
 				key="content"
-				className="content"
+				className="content home"
 				variants={descriptionVariants}
-				initial={{ x: -695 }}
+				initial={{ x: -735 }}
 				exit={"exit"}
 				animate="enter"
 			>

@@ -2,11 +2,13 @@ import { motion } from "framer-motion";
 import Head from "next/head";
 import Link from "next/link";
 
+import ArrowSvg from "components/svg/ArrowSvg";
+
 import data from "data.json";
 
 const descriptionVariants = {
 	exit: {
-		x: -695,
+		x: -735,
 		transition: { duration: 1 },
 	},
 	enter: {
@@ -21,22 +23,24 @@ export default function Detail(props) {
 			<Head>
 				<title>{props.name}</title>
 				<meta name="description" content="An assignment for a job interview" />
-				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<motion.div
 				key="content"
-				className="content"
+				className="content detail"
 				variants={descriptionVariants}
-				initial={{ x: -695 }}
+				initial={{ x: -735 }}
 				exit="exit"
 				animate="enter"
 			>
 				<h2 className="title">{props.name}</h2>
 				<p className="handle">{props.handle}</p>
-				<p className="description">
-					{props.description}
-					<Link href="/slider">Back</Link>
-				</p>
+				<p className="description">{props.description}</p>
+				<Link href="/slider">
+					<a className="back">
+						<ArrowSvg />
+						<span>Back</span>
+					</a>
+				</Link>
 			</motion.div>
 		</>
 	);
@@ -55,6 +59,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
 	const props = data[params.id];
 	return {
-		props: props, // will be passed to the page component as props
+		props: props,
 	};
 }

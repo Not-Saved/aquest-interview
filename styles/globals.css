@@ -27,6 +27,15 @@ li {
 	box-sizing: border-box;
 }
 
+h2 {
+	font-family: "Playfair Display", serif;
+	color: var(--text-color);
+}
+
+p {
+	color: var(--secondary-text-color);
+}
+
 .visuallyHidden {
 	border: 0;
 	padding: 0;
@@ -51,14 +60,47 @@ li {
 .content > h2 {
 	font-family: "Playfair Display", serif;
 	font-size: 100px;
+	line-height: 110px;
 	font-weight: normal;
-	color: var(--text-color);
-	margin-bottom: 25px;
+	margin-bottom: 32px;
+	margin-top: 91.5px;
 }
 
 .content > p {
 	font-size: 20px;
 	font-weight: bold;
-	line-height: 30px;
-	color: var(--secondary-text-color);
+	line-height: 32px;
+}
+
+.content.home {
+	width: calc(100% - 40px);
+}
+
+.content.detail > h2 {
+	margin-bottom: 15px;
+}
+
+.content.detail > p.handle {
+	font-family: "Playfair Display", serif;
+	font-weight: normal;
+	margin-bottom: 72px;
+}
+
+.content.detail > p.description {
+	margin-bottom: 72px;
+}
+
+.content.detail > .back {
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+
+	text-transform: uppercase;
+	font-weight: bold;
+	color: var(--text-color);
+	font-family: "Roboto", serif;
+}
+
+.content.detail > .back span {
+	padding-left: 16.8px;
 }

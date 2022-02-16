@@ -1,7 +1,7 @@
 .image {
 	position: relative;
-	height: 583px;
-	width: 459px;
+	height: 581px;
+	width: 456px;
 	margin-bottom: 20px;
 }
 
@@ -19,10 +19,13 @@
 	cursor: pointer;
 }
 
-.text > h3 {
+.text > h2 {
 	text-align: center;
+	font-weight: normal;
+	font-size: 40px;
 }
 
 .text > p {
+	font-size: 20px;
 	text-align: center;
 }

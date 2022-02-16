@@ -1,15 +1,18 @@
-import CompactSvg from "./CompactSvg";
-import SliderSvg from "./SliderSvg";
-import styles from "./modeSwitch.module.css";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 
-export default function ModeSwitch({ route, router }) {
+import CompactSvg from "./svg/CompactSvg";
+import SliderSvg from "./svg/SliderSvg";
+
+import styles from "./modeSwitch.module.css";
+
+export default function ModeSwitch({ route }) {
+	const router = useRouter();
 	const checked = route === "/slider";
 
 	function handleClick() {
-		const query = route === "/slider" ? "" : "slider";
-		router.push("/" + query, undefined, { shallow: true });
+		const query = route === "/slider" ? "/" : "/slider";
+		router.push(query, undefined, { shallow: true });
 	}
 
 	return (

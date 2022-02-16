@@ -1,0 +1,12 @@
+:root {
+	--background-color: #fff2d9;
+	--text-color: #000;
+	--secondary-text-color: #707070;
+
+	--content-margin-vertical: 94.5px;
+	--content-margin-horizontal: 124px;
+
+	--header-height: 105.5px;
+	--header-padding-horizontal: var(--content-margin-horizontal);
+	--header-border-color: var(--secondary-text-color);
+}

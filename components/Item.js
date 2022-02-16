@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
-import styles from "./artItem.module.css";
+import styles from "./item.module.css";
 
 const imageVariants = {
 	slider: {
@@ -13,6 +13,7 @@ const imageVariants = {
 	compact: ({ index }) => ({
 		x: -370 * index,
 		scale: 0.9 ** index,
+		y: 0,
 		transition: { duration: 1 },
 	}),
 	selected: ({ index }) => ({
@@ -49,7 +50,7 @@ const textVariants = {
 	detail: { opacity: 0, y: 0, x: -695, transition: { duration: 1 } },
 };
 
-export default function ArtItem({ route, index, imageName, selected, setSelected }) {
+export default function Item({ route, index, data, selected, setSelected }) {
 	const router = useRouter();
 
 	function getImageAnimate(selected) {
@@ -77,11 +78,11 @@ export default function ArtItem({ route, index, imageName, selected, setSelected
 				onClick={(e) => {
 					if (document.getElementById("scrollingList").style.cursor !== "grabbing" && route === "/slider") {
 						setSelected({ current: index + 1, removed: -1 });
-						router.push(`/detail/${imageName}`, null);
+						router.push(`/detail/${index + 1}`, null);
 					}
 				}}
 			>
-				<Image src={`/images/${imageName}.jpeg`} layout="fill" priority />
+				<Image src={data.url} layout="fill" priority alt="" />
 			</motion.div>
 			<motion.div
 				className={styles.text}
@@ -90,8 +91,8 @@ export default function ArtItem({ route, index, imageName, selected, setSelected
 				animate={getTextAnimate(selected)}
 				variants={textVariants}
 			>
-				<h3>Test</h3>
-				<p>Desc</p>
+				<h3>{data.name}</h3>
+				<p>{data.handle}</p>
 			</motion.div>
 		</motion.li>
 	);

@@ -27,19 +27,6 @@ li {
 	box-sizing: border-box;
 }
 
-:root {
-	--background-color: #fff2d9;
-	--text-color: #000;
-	--secondary-text-color: #707070;
-
-	--content-margin-vertical: 94.5px;
-	--content-margin-horizontal: 124px;
-
-	--header-height: 105.5px;
-	--header-padding-horizontal: var(--content-margin-horizontal);
-	--header-border-color: var(--secondary-text-color);
-}
-
 .visuallyHidden {
 	border: 0;
 	padding: 0;
@@ -52,4 +39,26 @@ li {
 	clip: rect(1px, 1px, 1px, 1px); /*maybe deprecated but we need to support legacy browsers */
 	clip-path: inset(50%); /*modern browsers, clip-path works inwards from each corner*/
 	white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+}
+
+.content {
+	padding: var(--content-margin-vertical) 0px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.content > h2 {
+	font-family: "Playfair Display", serif;
+	font-size: 100px;
+	font-weight: normal;
+	color: var(--text-color);
+	margin-bottom: 25px;
+}
+
+.content > p {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 30px;
+	color: var(--secondary-text-color);
 }

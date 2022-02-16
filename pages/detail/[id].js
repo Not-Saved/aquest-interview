@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import Head from "next/head";
 import Link from "next/link";
-import styles from "styles/detail.module.css";
+
+import data from "data.json";
 
 const descriptionVariants = {
 	exit: {
@@ -13,25 +15,46 @@ const descriptionVariants = {
 	},
 };
 
-export default function Detail() {
+export default function Detail(props) {
 	return (
-		<motion.div
-			key="detailDescription"
-			className={styles.description}
-			variants={descriptionVariants}
-			initial={{ x: -695 }}
-			exit={"exit"}
-			animate={"enter"}
-		>
-			<h2>DETAIL</h2>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-				magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-				pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-				laborum.
-				<Link href="/slider">Back</Link>
-			</p>
-		</motion.div>
+		<>
+			<Head>
+				<title>{props.name}</title>
+				<meta name="description" content="An assignment for a job interview" />
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+			<motion.div
+				key="content"
+				className="content"
+				variants={descriptionVariants}
+				initial={{ x: -695 }}
+				exit="exit"
+				animate="enter"
+			>
+				<h2 className="title">{props.name}</h2>
+				<p className="handle">{props.handle}</p>
+				<p className="description">
+					{props.description}
+					<Link href="/slider">Back</Link>
+				</p>
+			</motion.div>
+		</>
 	);
+}
+export async function getStaticPaths() {
+	const paths = Object.values(data).map((item, i) => ({
+		params: { id: String(i + 1) },
+	}));
+
+	return {
+		paths: paths,
+		fallback: true,
+	};
+}
+
+export async function getStaticProps({ params }) {
+	const props = data[params.id];
+	return {
+		props: props, // will be passed to the page component as props
+	};
 }

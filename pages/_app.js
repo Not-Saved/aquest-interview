@@ -1,31 +1,30 @@
-import "../styles/globals.css";
-import Layout from "components/Layout";
+import "styles/globals.css";
+import "styles/theme.css";
+
 import Head from "next/head";
 import { AnimatePresence } from "framer-motion";
-import ArtList from "components/ArtList";
-import ModeSwitch from "components/ModeSwitch";
+
+import Layout from "components/Layout";
 import PageWrapper from "components/PageWrapper";
+import List from "components/List";
+import ModeSwitch from "components/ModeSwitch";
 
 function MyApp({ Component, pageProps, router }) {
 	return (
 		<>
 			<Head>
-				<link
-					href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@100&display=swap"
-					rel="stylesheet"
-				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Layout route={router.route}>
+			<Layout>
 				<PageWrapper>
 					<AnimatePresence initial={false} exitBeforeEnter>
-						<Component key={router.route} route={router.route} {...pageProps} />
+						<Component key={router.route} {...pageProps} />
 					</AnimatePresence>
 				</PageWrapper>
 
-				<ArtList route={router.route} router={router} />
+				<List route={router.route} router={router} />
 			</Layout>
-			<AnimatePresence initial={false}>
+			<AnimatePresence initial={false} exitBeforeEnter>
 				{(router.route === "/" || router.route === "/slider") && (
 					<ModeSwitch key="modeSwitch" route={router.route} router={router} />
 				)}

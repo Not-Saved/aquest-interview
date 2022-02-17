@@ -1,6 +1,6 @@
 const defaultTransition = {
-	duration: 0.8,
-	ease: "easeInOut",
+	duration: 0.7,
+	ease: [0.72, 0.0, 0.48, 1.0],
 };
 
 export const homePageVariants = {
@@ -91,21 +91,22 @@ export const listItemImageVariants = {
 		scale: 2.4,
 		x: 735 + (numberOfItems - index) * 499 - 1630,
 		y: "28.75em",
-
 		transition: defaultTransition,
 	}),
-	exit: ({ index, selected }) => ({
-		scale: 1,
-		x: index > selected.current ? "300vw" : "-300vw",
-		y: 0,
-		transition: defaultTransition,
-	}),
-	enter: () => ({
+	exit: ({ index, selected }) => {
+		return {
+			scale: 1,
+			x: index > selected.current ? "200vw" : "-200vw",
+			y: 0,
+			transition: defaultTransition,
+		};
+	},
+	enter: {
 		scale: 1,
 		x: 0,
 		y: 0,
 		transition: defaultTransition,
-	}),
+	},
 };
 
 export const listItemTextVariants = {

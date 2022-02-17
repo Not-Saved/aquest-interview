@@ -12,11 +12,12 @@ export default function ModeSwitch({ route }) {
 
 	function handleClick() {
 		const query = route === "/slider" ? "/" : "/slider";
-		router.push(query, undefined, { shallow: true });
+		router.push(query);
 	}
 
 	return (
 		<motion.div
+			key="switch"
 			className={styles.modeSwitchContainer}
 			initial={{ opacity: 0 }}
 			exit={{ opacity: 0, transition: { duration: 0.7, ease: "easeInOut" } }}

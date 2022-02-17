@@ -11,9 +11,10 @@ export default function Item({ route, index, numberOfItems, data, selected, setS
 	function handleClick() {
 		if (document.getElementById("scrollingList").style.cursor !== "grabbing" && route === "/slider") {
 			setSelected({ current: `${index}`, removed: -1 });
-			router.push(`/detail/${index}`, null);
+			router.push(`/detail/${index}`);
 		}
 	}
+
 	return (
 		<li className={styles.item}>
 			<motion.div

@@ -14,7 +14,6 @@ export default function Item({ route, index, numberOfItems, data, selected, setS
 			router.push(`/detail/${index}`, null);
 		}
 	}
-
 	return (
 		<li className={styles.item}>
 			<motion.div

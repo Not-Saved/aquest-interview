@@ -1,12 +1,12 @@
 .image {
 	position: relative;
-	height: 581px;
-	width: 456px;
-	margin-bottom: 20px;
+	height: 36.312em;
+	width: 28.5em;
+	margin-bottom: 1.25em;
 }
 
 .image img {
-	border-radius: 260px;
+	border-radius: 16.25em;
 	object-fit: cover;
 	-webkit-user-drag: none;
 	user-select: none;
@@ -22,10 +22,10 @@
 .text > h2 {
 	text-align: center;
 	font-weight: normal;
-	font-size: 40px;
+	font-size: 2.5em;
 }
 
 .text > p {
-	font-size: 20px;
+	font-size: 1.25em;
 	text-align: center;
 }

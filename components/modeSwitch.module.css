@@ -1,6 +1,6 @@
 .modeSwitchContainer {
 	position: absolute;
-	bottom: 58px;
+	bottom: 3.625em;
 	right: var(--content-margin-horizontal);
 	z-index: 999;
 }
@@ -10,7 +10,7 @@
 	box-shadow: 0px 0px 1px #000000;
 	border: none;
 	border-radius: 20px;
-	padding: 5px;
+	padding: 0.312em;
 
 	display: flex;
 	align-items: center;
@@ -18,14 +18,14 @@
 	cursor: pointer;
 }
 .button > div {
-	padding: 5px 7px;
+	padding: 0.312em 0.435em;
 	flex: 1;
 }
 .button > div:first-child {
 	border-right: 1px solid var(--secondary-text-color);
-	padding-right: 10px;
+	padding-right: 0.625em;
 }
 .button > div:last-child {
 	border-left: 1px solid var(--secondary-text-color);
-	padding-left: 10px;
+	padding-left: 0.625em;
 }

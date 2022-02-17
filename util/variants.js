@@ -11,16 +11,22 @@ export const homePageVariants = {
 		transitionEnd: { zIndex: 10 },
 	},
 	exit: {
-		x: -735,
+		x: "-100%",
 		opacity: [1, 1],
 		transition: defaultTransition,
 		zIndex: 0,
 	},
-	enterOpacity: { x: [0, 0], opacity: [0, 1], transition: { ...defaultTransition, delay: 0.4 } },
+	enterOpacity: {
+		x: [0, 0],
+		opacity: [0, 1],
+		transition: { ...defaultTransition, delay: 0.4 },
+		transitionEnd: { zIndex: 10 },
+	},
 	exitOpacity: {
 		x: [0, 0],
 		opacity: 0,
 		transition: defaultTransition,
+		zIndex: 0,
 	},
 };
 
@@ -32,7 +38,7 @@ export const detailPageVariants = {
 		transitionEnd: { zIndex: 10 },
 	},
 	exit: {
-		x: -735,
+		x: "-100%",
 		opacity: [1, 1],
 		transition: defaultTransition,
 		zIndex: 0,
@@ -76,7 +82,7 @@ export const listItemImageVariants = {
 		index = index - 1;
 		return {
 			scale: 0.855 ** index + 0.1,
-			x: 735 + -290 * index - 14 * index * index,
+			x: `calc(var(--main-content-width) + -18.5em * ${index} - 0.875em * ${index * index})`,
 			y: 0,
 			transition: defaultTransition,
 		};
@@ -84,12 +90,13 @@ export const listItemImageVariants = {
 	selected: ({ index, numberOfItems }) => ({
 		scale: 2.4,
 		x: 735 + (numberOfItems - index) * 499 - 1630,
-		y: 460,
+		y: "28.75em",
+
 		transition: defaultTransition,
 	}),
 	exit: ({ index, selected }) => ({
 		scale: 1,
-		x: index > selected.current ? 3000 : -3000,
+		x: index > selected.current ? "300vw" : "-300vw",
 		y: 0,
 		transition: defaultTransition,
 	}),
@@ -103,16 +110,14 @@ export const listItemImageVariants = {
 
 export const listItemTextVariants = {
 	slider: {
-		x: 0,
 		y: 0,
 		opacity: 1,
 		transition: defaultTransition,
 	},
 	compact: {
-		x: 0,
-		y: 300,
+		y: "25vh",
 		opacity: 1,
 		transition: defaultTransition,
 	},
-	detail: { opacity: 0, y: [0, 0], x: 0, transition: defaultTransition },
+	detail: { opacity: 0, y: [0, 0], transition: defaultTransition },
 };

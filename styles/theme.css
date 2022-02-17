@@ -1,12 +1,16 @@
 :root {
+	--body-font-size: max(0.83vw, 1.48vh);
 	--background-color: #fff2d9;
 	--text-color: #000;
 	--secondary-text-color: #707070;
 
-	--content-margin-vertical: 94.5px;
-	--content-margin-horizontal: 124px;
+	--content-margin-vertical: 5.9em;
+	--content-margin-horizontal: 7.75em;
 
-	--header-height: 105.5px;
+	--header-height: 6.6em;
 	--header-padding-horizontal: var(--content-margin-horizontal);
 	--header-border-color: var(--secondary-text-color);
+
+	--main-content-width: 46em;
+	--main-content-margin-top: 2.72em;
 }

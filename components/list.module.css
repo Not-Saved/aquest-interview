@@ -17,7 +17,7 @@
 }
 
 .listContainer {
-	overflow-y: hidden;
-	overflow-x: hidden;
+	position: absolute;
 	min-width: 100vw;
+	height: 100%;
 }

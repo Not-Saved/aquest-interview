@@ -52,9 +52,11 @@ p {
 
 .content {
 	padding: var(--content-margin-vertical) 0px;
-	position: absolute;
-	width: 100%;
+	width: 611px;
 	height: 100%;
+	margin-left: var(--content-margin-horizontal);
+	position: absolute;
+	z-index: 10;
 }
 
 .content > h2 {
@@ -73,7 +75,7 @@ p {
 }
 
 .content.home {
-	width: calc(100% - 40px);
+	width: 571px;
 }
 
 .content.detail > h2 {

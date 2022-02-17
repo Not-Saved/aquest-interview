@@ -5,30 +5,31 @@ import Head from "next/head";
 import { AnimatePresence } from "framer-motion";
 
 import Layout from "components/Layout";
-import PageWrapper from "components/PageWrapper";
 import List from "components/List";
 import ModeSwitch from "components/ModeSwitch";
+import { useEffect, useState } from "react";
 
 function MyApp({ Component, pageProps, router }) {
+	const [history, setHistory] = useState({ current: router.route, last: "" });
+
+	useEffect(() => {
+		setHistory((old) => ({ current: router.route, last: old.current !== router.route ? old.current : old.last }));
+	}, [router.route]);
+
 	return (
 		<>
 			<Head>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Layout>
-				<PageWrapper>
-					<AnimatePresence initial={false} exitBeforeEnter>
-						<Component key={router.route} {...pageProps} />
-					</AnimatePresence>
-				</PageWrapper>
-
+				<AnimatePresence initial={false}>
+					<Component key={router.route} history={history} {...pageProps} />
+					{(router.route === "/" || router.route === "/slider") && (
+						<ModeSwitch key="modeSwitch" route={router.route} router={router} />
+					)}
+				</AnimatePresence>
 				<List route={router.route} router={router} />
 			</Layout>
-			<AnimatePresence initial={false} exitBeforeEnter>
-				{(router.route === "/" || router.route === "/slider") && (
-					<ModeSwitch key="modeSwitch" route={router.route} router={router} />
-				)}
-			</AnimatePresence>
 		</>
 	);
 }

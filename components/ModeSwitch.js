@@ -18,9 +18,9 @@ export default function ModeSwitch({ route }) {
 	return (
 		<motion.div
 			className={styles.modeSwitchContainer}
-			initial={false}
-			exit={{ opacity: [1, 0], transition: { duration: 1 } }}
-			animate={{ opacity: [0, 1] }}
+			initial={{ opacity: 0 }}
+			exit={{ opacity: 0, transition: { duration: 0.7, ease: "easeInOut" } }}
+			animate={{ opacity: [0, 1], transition: { duration: 0.7, ease: "easeInOut" } }}
 		>
 			<label htmlFor="modeSwitch" className="visuallyHidden">
 				Mode switch

@@ -5,19 +5,12 @@ import Link from "next/link";
 import ArrowSvg from "components/svg/ArrowSvg";
 
 import data from "data.json";
-
-const descriptionVariants = {
-	exit: {
-		x: -735,
-		transition: { duration: 1 },
-	},
-	enter: {
-		x: 0,
-		transition: { duration: 1 },
-	},
-};
+import { detailPageVariants } from "util/variants";
+import { useRouter } from "next/router";
 
 export default function Detail(props) {
+	const router = useRouter();
+
 	return (
 		<>
 			<Head>
@@ -27,9 +20,9 @@ export default function Detail(props) {
 			<motion.div
 				key="content"
 				className="content detail"
-				variants={descriptionVariants}
-				initial={{ x: -735 }}
-				exit="exit"
+				variants={detailPageVariants}
+				initial={"exit"}
+				exit={router.route === "/" ? "exitOpacity" : "exit"}
 				animate="enter"
 			>
 				<h2 className="title">{props.name}</h2>
@@ -37,7 +30,7 @@ export default function Detail(props) {
 				<p className="description">{props.description}</p>
 				<Link href="/slider">
 					<a className="back">
-						<ArrowSvg />
+						<ArrowSvg aria-hidden="true" focusable="false" />
 						<span>Back</span>
 					</a>
 				</Link>

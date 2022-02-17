@@ -2,6 +2,7 @@
 	position: absolute;
 	bottom: 58px;
 	right: var(--content-margin-horizontal);
+	z-index: 999;
 }
 
 .button {

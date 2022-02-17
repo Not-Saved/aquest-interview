@@ -7,7 +7,7 @@ export default function Logo() {
 			<a>
 				<h1>
 					<span className="visuallyHidden">AQ</span>
-					<AquestSvg />
+					<AquestSvg aria-hidden="true" focusable="false" />
 				</h1>
 			</a>
 		</Link>

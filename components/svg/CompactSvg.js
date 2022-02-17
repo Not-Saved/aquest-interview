@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 
-const variants = {
-	visible: { opacity: 1, transition: { duration: 0.7 } },
-	hidden: { opacity: 0.397, transition: { duration: 0.7 } },
-};
+import { modeSwitchVariants } from "util/variants";
 
 export default function CompactSvg({ checked, ...props }) {
 	return (
@@ -14,7 +11,7 @@ export default function CompactSvg({ checked, ...props }) {
 			height="42"
 			viewBox="0 0 54 42"
 			animate={checked ? "visible" : "hidden"}
-			variants={variants}
+			variants={modeSwitchVariants}
 			{...props}
 		>
 			<defs>
@@ -40,7 +37,7 @@ export default function CompactSvg({ checked, ...props }) {
 					<feComposite in="SourceGraphic" />
 				</filter>
 			</defs>
-			<motion.g id="Component_20_1" data-name="Component 20 – 1" variants={variants}>
+			<motion.g id="Component_20_1" data-name="Component 20 – 1" variants={modeSwitchVariants}>
 				<g filter="url(#Rectangle_13)">
 					<rect
 						id="Rectangle_13-2"

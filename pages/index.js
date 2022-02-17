@@ -1,18 +1,11 @@
 import { motion } from "framer-motion";
 import Head from "next/head";
 
-const descriptionVariants = {
-	exit: {
-		x: -735,
-		transition: { duration: 1 },
-	},
-	enter: {
-		x: [null, 0],
-		transition: { duration: 1 },
-	},
-};
+import { homePageVariants } from "util/variants";
 
-export default function Home() {
+export default function Home({ history }) {
+	const initial = history.last === "/detail/[id]" && history.current === "/" ? "exitOpacity" : "exit";
+	const animate = history.last === "/detail/[id]" && history.current === "/" ? "enterOpacity" : "enter";
 	return (
 		<>
 			<Head>
@@ -22,10 +15,10 @@ export default function Home() {
 			<motion.div
 				key="content"
 				className="content home"
-				variants={descriptionVariants}
-				initial={{ x: -735 }}
-				exit={"exit"}
-				animate="enter"
+				variants={homePageVariants}
+				initial={initial}
+				exit="exit"
+				animate={animate}
 			>
 				<h2 className="title">The Abstract design</h2>
 				<p className="description">

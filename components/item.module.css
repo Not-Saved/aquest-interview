@@ -17,7 +17,6 @@
 	-ms-user-select: none;
 
 	pointer-events: none;
-	cursor: pointer;
 }
 
 .image:hover {

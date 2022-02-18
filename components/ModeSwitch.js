@@ -6,12 +6,12 @@ import SliderSvg from "./svg/SliderSvg";
 
 import styles from "./modeSwitch.module.css";
 
-export default function ModeSwitch({ route }) {
+export default function ModeSwitch() {
 	const router = useRouter();
-	const checked = route === "/slider";
+	const checked = router.route === "/slider";
 
 	function handleClick() {
-		const query = route === "/slider" ? "/" : "/slider";
+		const query = router.route === "/slider" ? "/" : "/slider";
 		router.push(query);
 	}
 

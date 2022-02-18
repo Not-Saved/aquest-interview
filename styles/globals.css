@@ -12,6 +12,8 @@ body > div {
 	width: 100%;
 	height: 100%;
 	overflow-x: hidden;
+	overflow-y: hidden;
+	position: relative;
 }
 
 a {
@@ -53,12 +55,12 @@ p {
 }
 
 .content {
+	position: absolute;
+	height: 100%;
+
+	width: var(--main-content-width);
 	padding: var(--content-margin-vertical) 0px;
 	padding-left: var(--content-margin-horizontal);
-	width: var(--main-content-width);
-	height: 100%;
-	position: absolute;
-	z-index: 10;
 	margin-top: var(--main-content-margin-top);
 }
 
@@ -103,6 +105,11 @@ p {
 	font-weight: bold;
 	color: var(--text-color);
 	font-family: "Roboto", serif;
+}
+
+.content.detail > .back svg {
+	width: 1.45em;
+	height: 1.186em;
 }
 
 .content.detail > .back span {

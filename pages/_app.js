@@ -24,9 +24,7 @@ function MyApp({ Component, pageProps, router }) {
 			<Layout>
 				<AnimatePresence initial={false}>
 					<Component key={router.route} history={history} {...pageProps} />
-					{(router.route === "/" || router.route === "/slider") && (
-						<ModeSwitch key="modeSwitch" route={router.route} router={router} />
-					)}
+					{(router.route === "/" || router.route === "/slider") && <ModeSwitch key="modeSwitch" />}
 				</AnimatePresence>
 				<List route={router.route} router={router} />
 			</Layout>

@@ -9,9 +9,9 @@
 	background-color: #4b4b4b;
 	box-shadow: 0px 0px 1px #000000;
 	border: none;
-	border-radius: 20px;
+	border-radius: 1.25em;
 	padding: 0.312em;
-
+	font-size: inherit;
 	display: flex;
 	align-items: center;
 	justify-content: middle;
@@ -19,6 +19,7 @@
 }
 .button > div {
 	padding: 0.312em 0.435em;
+	padding-bottom: 0.282em;
 	flex: 1;
 }
 .button > div:first-child {
@@ -28,4 +29,10 @@
 .button > div:last-child {
 	border-left: 1px solid var(--secondary-text-color);
 	padding-left: 0.625em;
+}
+
+.button svg {
+	font-size: 1.1em;
+	width: 2.865em;
+	height: 2.625em;
 }

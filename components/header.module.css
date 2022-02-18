@@ -9,3 +9,7 @@
 
 	padding: 0px var(--header-padding-horizontal);
 }
+
+.header svg {
+	height: 4.06rem;
+}

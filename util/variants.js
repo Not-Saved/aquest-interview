@@ -90,7 +90,7 @@ export const listItemImageVariants = {
 	selected: ({ offset, screenWidth, width }) => ({
 		scale: 2.4,
 		x: -offset + screenWidth - width * 0.6 * 2.4,
-		y: "28.75em",
+		y: "26.75em",
 		transition: defaultTransition,
 	}),
 	exit: ({ index, selected }) => ({

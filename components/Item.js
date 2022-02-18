@@ -19,6 +19,11 @@ export default function Item({ route, index, numberOfItems, data, selected, setS
 		}
 	}
 
+	let initial = "";
+	if (route === "/detail/[id]" && router.query.id != index) initial = "exit";
+	else if (router.route === "/") initial = "compact";
+	else initial = "slider";
+
 	return (
 		<li className={styles.item} ref={ref}>
 			<motion.div
@@ -31,7 +36,7 @@ export default function Item({ route, index, numberOfItems, data, selected, setS
 					width: ref.current?.clientWidth,
 					screenWidth: width,
 				}}
-				initial={router.route === "/" ? "compact" : "slider"}
+				initial={initial}
 				animate={getImageAnimateLabel(selected, route, index)}
 				variants={listItemImageVariants}
 				style={{ zIndex: 6 - index }}

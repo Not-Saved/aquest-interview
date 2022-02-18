@@ -4,7 +4,7 @@ Progetto creato con [`create-next-app`](https://github.com/vercel/next.js/tree/c
 
 Demo deployata qui: </br>
 [`Heroku`](https://frozen-taiga-23779.herokuapp.com/)</br>
-[`Vercel`](https://aquest-interview-5xqp75ivc-not-saved.vercel.app/)
+[`Vercel`](https://aquest-interview.vercel.app/)
 
 ## Considerazioni
 

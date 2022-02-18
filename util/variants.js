@@ -87,20 +87,18 @@ export const listItemImageVariants = {
 			transition: defaultTransition,
 		};
 	},
-	selected: ({ index, numberOfItems }) => ({
+	selected: ({ offset, screenWidth, width }) => ({
 		scale: 2.4,
-		x: 735 + (numberOfItems - index) * 499 - 1630,
+		x: -offset + screenWidth - width * 0.6 * 2.4,
 		y: "28.75em",
 		transition: defaultTransition,
 	}),
-	exit: ({ index, selected }) => {
-		return {
-			scale: 1,
-			x: index > selected.current ? "200vw" : "-200vw",
-			y: 0,
-			transition: defaultTransition,
-		};
-	},
+	exit: ({ index, selected }) => ({
+		scale: 1,
+		x: index > selected.current ? "200vw" : "-200vw",
+		y: 0,
+		transition: defaultTransition,
+	}),
 	enter: {
 		scale: 1,
 		x: 0,

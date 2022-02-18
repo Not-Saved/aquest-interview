@@ -4,9 +4,13 @@ import { motion } from "framer-motion";
 
 import styles from "./item.module.css";
 import { listItemImageVariants, listItemTextVariants } from "util/variants";
+import { useRef } from "react";
+import { useWindowSize } from "./useWindowSize";
 
 export default function Item({ route, index, numberOfItems, data, selected, setSelected }) {
+	const { width } = useWindowSize();
 	const router = useRouter();
+	const ref = useRef();
 
 	function handleClick() {
 		if (document.getElementById("scrollingList").style.cursor !== "grabbing" && route === "/slider") {
@@ -16,11 +20,18 @@ export default function Item({ route, index, numberOfItems, data, selected, setS
 	}
 
 	return (
-		<li className={styles.item}>
+		<li className={styles.item} ref={ref}>
 			<motion.div
 				className={styles.image}
-				custom={{ index, selected, numberOfItems }}
-				initial={false}
+				custom={{
+					index,
+					selected,
+					numberOfItems,
+					offset: ref.current?.offsetLeft,
+					width: ref.current?.clientWidth,
+					screenWidth: width,
+				}}
+				initial={router.route === "/" ? "compact" : "slider"}
 				animate={getImageAnimateLabel(selected, route, index)}
 				variants={listItemImageVariants}
 				style={{ zIndex: 6 - index }}
